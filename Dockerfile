@@ -2,7 +2,7 @@
 FROM resin/armv7hf-debian:jessie
 
 #enable building ARM container on x86 machinery on the web (comment out next line if not built as automated build on docker hub) 
-#RUN [ "cross-build-start" ]
+RUN [ "cross-build-start" ]
 
 #labeling
 LABEL maintainer="netpi@hilscher.com" \
@@ -57,4 +57,4 @@ EXPOSE 22
 STOPSIGNAL SIGTERM
 
 #stop processing ARM emulation (comment out next line if not built as automated build on docker hub)
-#RUN [ "cross-build-end" ]
+RUN [ "cross-build-end" ]
