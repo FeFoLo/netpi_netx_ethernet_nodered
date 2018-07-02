@@ -5,9 +5,9 @@ FROM resin/armv7hf-debian:jessie
 RUN [ "cross-build-start" ]
 
 #labeling
-LABEL maintainer="netpi@hilscher.com" \
-      version="V0.0.0.1" \
-      description="netX based TCP/IP network interface + Node-RED"
+#LABEL maintainer="netpi@hilscher.com" \
+      #version="V0.0.0.1" \
+      #description="netX based TCP/IP network interface + Node-RED"
 
 #version
 ENV HILSCHERNETPI_NETX_TCPIP_NETWORK_INTERFACE_VERSION_NODERED 0.0.0.1
@@ -33,7 +33,7 @@ RUN apt-get update  \
 #compile netX network daemon
     && gcc /tmp/cifx0daemon.c -o /opt/cifx/cifx0daemon -I/usr/include/cifx -Iincludes/ -lcifx -pthread \
 #install node.js V8.x.x
-    && url -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - \
+    && curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - \
     && apt-get install -y nodejs \
 #install Node-RED
     && npm install -g --unsafe-perm node-red \	
