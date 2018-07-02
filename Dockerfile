@@ -13,8 +13,8 @@ RUN [ "cross-build-start" ]
 ENV HILSCHERNETPI_NETX_TCPIP_NETWORK_INTERFACE_VERSION_NODERED 0.0.0.1
 
 #copy files
-COPY "./init.d/*" /etc/init.d/ 
-COPY "./driver/*" "./firmware/*" /tmp/
+COPY ./init.d/* /etc/init.d/ 
+COPY ./driver/* ./firmware/* /tmp/
 
 #do installation
 RUN apt-get update  \
