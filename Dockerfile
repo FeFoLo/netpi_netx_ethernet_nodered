@@ -11,6 +11,8 @@ RUN [ "cross-build-start" ]
 
 #version
 ENV HILSCHERNETPI_NETX_TCPIP_NETWORK_INTERFACE_VERSION_NODERED 0.0.0.1
+ENV TEST HelloWorld
+ENV NETPI_NETX_ETHERNET_NDOERED_VERSION 1
 
 #copy files
 COPY "./init.d/*" /etc/init.d/ 
