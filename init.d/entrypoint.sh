@@ -5,7 +5,9 @@
 term_handler() {
 
   echo "terminating ssh ..."
-  /etc/init.d/ssh stop
+  /etc/init.d/ssh stop,
+  echo "terminating node red ..."
+  /usr/bin/node-red stop,
 
   exit 143; # 128 + 15 -- SIGTERM
 }
@@ -19,6 +21,13 @@ echo "starting ssh ..."
 
 # create netx "cifx0" ethernet network interface 
 /opt/cifx/cifx0daemon
+
+# config cifx0
+
+
+# run node-red in the backgrounf
+/usr/bin/node-red start
+
 
 # wait forever not to exit the container
 while true
