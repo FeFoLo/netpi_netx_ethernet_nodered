@@ -20,7 +20,7 @@ function valid_ip()
 }
 
 echo "IP Check is running at "`date`
-modbus_ip="$1"
+modbus_ip="$MODBUS_TCP_IP"
 # code from https://www.cyberciti.biz/faq/linux-unix-howto-check-if-bash-variable-defined-not/
 # check if env variable is set
 if [[ $modbus_ip && ${modbus_ip-x} ]]
