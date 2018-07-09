@@ -38,9 +38,9 @@ RUN apt-get update  \
     && curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - \
     && apt-get install -y nodejs \
 #install Node-RED
-    && npm install -g --unsafe-perm node-red \
-    && npm install -g node-red-contrib-modbustcp \
-    && npm install -g node-red-dashboard \
+    && sudo npm install -g --unsafe-perm node-red \
+    && sudo npm install -g node-red-contrib-modbustcp \
+    && sudo npm install -g node-red-dashboard \
 #clean up
     && rm -rf /tmp/* \
     && apt-get remove build-essential \
