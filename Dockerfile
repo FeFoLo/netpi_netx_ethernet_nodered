@@ -49,7 +49,7 @@ RUN apt-get update  \
     && rm -rf /var/lib/apt/lists/*
 
 #set the entrypoint
-RUN sudo chmod 777 /etc/init.d/entrypoint.sh /ect/init.d/cifx0_startup.sh
+RUN sudo chmod 777 /etc/init.d/entrypoint.sh /etc/init.d/cifx0_startup.sh
 ENTRYPOINT ["/etc/init.d/entrypoint.sh"]
 
 #Node-RED port
