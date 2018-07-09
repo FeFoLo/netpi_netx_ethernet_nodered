@@ -24,7 +24,7 @@ STEP 3. Enter the following parameters under **Containers > Add Container**
 * **Port mapping**: `Host "22" (any unused one) -> Container "22"`
 * **Port mapping**: `Host "1880" (any unused one) -> Container "1880"`
 
-* **Env > add environment variable** : `"MODBUS_TCP_IP" -> IP address of your netPi` 
+* **Env > add environment variable** : `"MODBUS_TCP_IP" -> IP address of your netPis modbus interface` 
 
 * **Runtime > Privileged mode** : `On`
 
