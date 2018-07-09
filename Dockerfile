@@ -20,7 +20,7 @@ COPY "./driver/*" "./firmware/*" /tmp/
 
 #do installation
 RUN apt-get update  \
-    && apt-get install -y openssh-server build-essential \
+    && apt-get install -y openssh-server build-essential python\
 #do users root and pi    
     && useradd --create-home --shell /bin/bash pi \
     && echo 'root:root' | chpasswd \
@@ -39,8 +39,8 @@ RUN apt-get update  \
     && apt-get install -y nodejs \
 #install Node-RED
     && sudo npm install -g --unsafe-perm node-red \
-#    && sudo npm install -g node-red-contrib-modbustcp \
-#    && sudo npm install -g node-red-dashboard \
+    && sudo npm install -g --unsafe-perm node-red-contrib-modbustcp \
+    && sudo npm install -g --unsafe-perm node-red-dashboard \
 #clean up
     && rm -rf /tmp/* \
     && apt-get remove build-essential \
