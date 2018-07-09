@@ -23,7 +23,7 @@ echo "starting ssh ..."
 /opt/cifx/cifx0daemon
 
 # config cifx0
-
+/etc/init.d/cifx0_startup.sh
 
 # run node-red in the backgrounf
 /usr/bin/node-red start
