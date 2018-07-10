@@ -17,7 +17,7 @@ STEP 2. Click the Docker tile to open the [Portainer.io](http://portainer.io/) D
 
 STEP 3. Enter the following parameters under **Containers > Add Container**
 
-* **Image**: `FeFoLo/netpi_netx_ethernet_nodered`
+* **Image**: `flolo/netpi_netx_ethernet_nodered`
 
 * **Restart policy"** : `always`
 
