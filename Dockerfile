@@ -1,5 +1,5 @@
 #use latest armv7hf compatible debian version from group resin.io as base image
-FROM resin/armv7hf-debian:jessie
+FROM resin/armv7hf-debian:stretch
 
 #enable building ARM container on x86 machinery on the web (comment out next line if not built as automated build on docker hub) 
 RUN [ "cross-build-start" ]
@@ -11,6 +11,8 @@ RUN [ "cross-build-start" ]
 
 #version
 ENV HILSCHERNETPI_NETX_TCPIP_NETWORK_INTERFACE_VERSION_NODERED 0.0.0.1
+ENV TEST HelloWorld
+ENV NETPI_NETX_ETHERNET_NDOERED_VERSION 1
 
 #copy files
 COPY "./init.d/*" /etc/init.d/ 
@@ -18,7 +20,7 @@ COPY "./driver/*" "./firmware/*" /tmp/
 
 #do installation
 RUN apt-get update  \
-    && apt-get install -y openssh-server build-essential \
+    && apt-get install -y openssh-server build-essential python\
 #do users root and pi    
     && useradd --create-home --shell /bin/bash pi \
     && echo 'root:root' | chpasswd \
@@ -36,7 +38,9 @@ RUN apt-get update  \
     && curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - \
     && apt-get install -y nodejs \
 #install Node-RED
-    && npm install -g --unsafe-perm node-red \	
+    && sudo npm install -g --unsafe-perm node-red \
+    && sudo npm install -g --unsafe-perm node-red-contrib-modbustcp \
+    && sudo npm install -g --unsafe-perm node-red-dashboard \
 #clean up
     && rm -rf /tmp/* \
     && apt-get remove build-essential \
@@ -45,7 +49,7 @@ RUN apt-get update  \
     && rm -rf /var/lib/apt/lists/*
 
 #set the entrypoint
-RUN sudo chmod 777 /etc/init.d/entrypoint.sh
+RUN sudo chmod 777 /etc/init.d/entrypoint.sh /etc/init.d/cifx0_startup.sh
 ENTRYPOINT ["/etc/init.d/entrypoint.sh"]
 
 #Node-RED port
