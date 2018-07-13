@@ -41,7 +41,7 @@ RUN apt-get update  \
     && sudo npm install -g --unsafe-perm node-red \
     && sudo npm install -g --unsafe-perm node-red-contrib-modbustcp \
     && sudo npm install -g --unsafe-perm node-red-dashboard \
-    && sudo npm install -g --unsfae-perm node-red-contrib-influxdb \
+    && sudo npm install -g --unsafe-perm node-red-contrib-influxdb \
 #clean up
     && rm -rf /tmp/* \
     && apt-get remove build-essential \
