@@ -19,6 +19,9 @@ STEP 3. Enter the following parameters under **Containers > Add Container**
 
 * **Image**: `flolo/netpi_netx_ethernet_nodered`
 
+* **Volume**: first create Volume then map ist
+              `/data --> map createt Volume`
+
 * **Restart policy"** : `always`
 
 * **Port mapping**: `Host "22" (any unused one) -> Container "22"`
