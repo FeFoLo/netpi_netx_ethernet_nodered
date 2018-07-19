@@ -25,9 +25,9 @@ echo "starting ssh ..."
 # config cifx0
 /etc/init.d/cifx0_startup.sh
 
-NodeRedCmd = FlowsOfNoVolume
+NodeRedCmd = DockerContainerFlows
 
-if [! -d /data/]
+if [ -d /data/ ]
 then
   echo "[Info] Save Flows to volume"
   # from https://nodered.org/docs/getting-started/running
