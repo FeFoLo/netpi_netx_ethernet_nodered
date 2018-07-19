@@ -25,8 +25,19 @@ echo "starting ssh ..."
 # config cifx0
 /etc/init.d/cifx0_startup.sh
 
+NodeRedCmd = FlowsOfNoVolume
+
+if [! -d /data/]
+then
+  echo "[Info] Save Flows to volume"
+  # from https://nodered.org/docs/getting-started/running
+  NodeRedCmd = -u /data/
+else
+  echo "[Warning] No Volume found Flows saved only in Container or not loaded form Volume"
+fi
+
 # run node-red in the backgrounf
-/usr/bin/node-red start
+/usr/bin/node-red $NodeRedCmd
 
 
 # wait forever not to exit the container
