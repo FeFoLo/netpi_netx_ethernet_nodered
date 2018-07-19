@@ -19,7 +19,7 @@ STEP 3. Enter the following parameters under **Containers > Add Container**
 
 * **Image**: `flolo/netpi_netx_ethernet_nodered`
 
-* **Volume**: first create Volume then map it `/data --> map createt Volume`
+* **Volume**: first create Volume then map it `container: /data --> volume: choose created Volume`
 
 * **Restart policy"** : `always`
 
