@@ -4,8 +4,8 @@
 # SIGNAL-handler
 term_handler() {
 
-  echo "terminating ssh ..."
-  /etc/init.d/ssh stop,
+  #echo "terminating ssh ..."
+  #/etc/init.d/ssh stop,
   echo "terminating node red ..."
   /usr/bin/node-red stop,
 
@@ -16,8 +16,8 @@ term_handler() {
 trap 'kill ${!}; term_handler' SIGINT SIGKILL SIGTERM SIGQUIT SIGTSTP SIGSTOP SIGHUP
 
 # run applications in the background
-echo "starting ssh ..."
-/etc/init.d/ssh start
+#echo "starting ssh ..."
+#/etc/init.d/ssh start
 
 # create netx "cifx0" ethernet network interface 
 /opt/cifx/cifx0daemon
