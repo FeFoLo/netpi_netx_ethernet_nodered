@@ -20,15 +20,17 @@ COPY "./driver/*" "./firmware/*" /tmp/
 
 #do installation
 RUN apt-get update  \
-    && apt-get install -y openssh-server build-essential python\
+#    && apt-get install -y openssh-server build-essential python\
 #do users root and pi    
-    && useradd --create-home --shell /bin/bash pi \
-    && echo 'root:root' | chpasswd \
-    && echo 'pi:raspberry' | chpasswd \
-    && adduser pi sudo \
-    && mkdir /var/run/sshd \
-    && sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config \
-    && sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd \
+#    && useradd --create-home --shell /bin/bash pi \
+#    && echo 'root:root' | chpasswd \
+#    && echo 'pi:raspberry' | chpasswd \
+#    && adduser pi sudo \
+#    && mkdir /var/run/sshd \
+#    && sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config \
+#    && sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd \
+#install python and gcc
+    && apt-get install -y build-essential python\
 #install netX driver and netX ethernet supporting firmware
     && dpkg -i /tmp/netx-docker-pi-drv-1.1.3.deb \
     && dpkg -i /tmp/netx-docker-pi-pns-eth-3.12.0.8.deb \
