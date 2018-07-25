@@ -27,6 +27,7 @@ STEP 3. Enter the following parameters under **Containers > Add Container**
 * **Port mapping**: `Host "1880" (any unused one) -> Container "1880"`
 
 * **Env > add environment variable** : `"MODBUS_TCP_IP" -> IP address of your netPis modbus interface` 
++ **Env > add environment variable** : `"FLOW_NAMe" -> Name under which flows are saved, if flows are already saved in Volume load them with thier name` 
 
 * **Runtime > Privileged mode** : `On`
 
