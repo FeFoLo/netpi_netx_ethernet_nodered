@@ -25,19 +25,19 @@ trap 'kill ${!}; term_handler' SIGINT SIGKILL SIGTERM SIGQUIT SIGTSTP SIGSTOP SI
 # config cifx0
 /etc/init.d/cifx0_startup.sh
 
-NodeRedCmd="DockerContainerFlows.json"
+flow_name="$FLOW_NAME"
 
 if [ -d /data/ ]
 then
   echo "[Info] Save Flows to volume"
   # from https://nodered.org/docs/getting-started/running
-  NodeRedCmd="-u /data/ DockerContainerFlows.json"
+  flow_location="-u /data/"
 else
   echo "[Warning] No Volume found Flows saved only in Container or not loaded form Volume"
 fi
 
 # run node-red in the backgrounf
-/usr/bin/node-red $NodeRedCmd
+/usr/bin/node-red $flow_location $flow_name
 
 
 # wait forever not to exit the container
